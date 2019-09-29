@@ -16,13 +16,12 @@ namespace Tests
 
       // Let's give the ball means of communcating back to the engine.
       IngameEventBridge ingameEventBridge = new IngameEventBridge();
-      PlayerControlledBall ball = new PlayerControlledBall(ingameEventBridge);
 
       LevelData level = new LevelData();
       level.addRow(new string[] { "x", "x", "x" }); // index {0, 1, 2}
       level.addRow(new string[] { "x", "x" });      // index  {3, 4}
 
-      RangedMinerBreakoutGame gameRunner = new RangedMinerBreakoutGame(ball);
+      RangedMinerBreakoutGame gameRunner = new RangedMinerBreakoutGame();
       gameRunner.registerGamePhaseEventListener(gameTracker);
       ingameEventBridge.registerListener(gameRunner);
 

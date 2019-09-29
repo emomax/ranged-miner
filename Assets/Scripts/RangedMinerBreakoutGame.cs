@@ -10,9 +10,8 @@ public class RangedMinerBreakoutGame : IngameEventListener
   private int brokenBricks = 0;
   private List<GamePhaseEventListener> gamePhaseEventListeners;
 
-  public RangedMinerBreakoutGame(PlayerControlledBall ball)
+  public RangedMinerBreakoutGame()
   {
-    this.ball = ball;
     this.gamePhaseEventListeners = new List<GamePhaseEventListener>();
   }
 
