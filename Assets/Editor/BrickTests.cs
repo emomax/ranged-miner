@@ -11,7 +11,7 @@ namespace Tests
     [Test]
     public void CanParseBasicBrickFromRawData()
     {
-      Brick brick = new Brick("x");
+      Brick brick = new Brick("x", 0);
 
       Assert.True(brick.getBrickType().Equals(Brick.BrickType.BRITTLE));
     }

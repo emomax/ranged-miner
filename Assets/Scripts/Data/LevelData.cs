@@ -15,9 +15,9 @@ public class LevelData
   {
     var row = new List<Brick>();
 
-    foreach (string brickType in rawRowData)
+    for (int i = 0; i < rawRowData.Length; i++)
     {
-      row.Add(new Brick(brickType));
+      row.Add(new Brick(rawRowData[i], getTotalNumberOfBricks() + i));
     }
 
     brickRows.Add(row);

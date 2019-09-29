@@ -11,8 +11,9 @@ public class Brick
 
   private BrickType brickType;
   private int health;
+  private int id;
 
-  public Brick(string rawBrickType)
+  public Brick(string rawBrickType, int id)
   {
     if (rawBrickType.Equals("x"))
     {
@@ -23,11 +24,18 @@ public class Brick
     {
       throw new UnityException("Unknown bricktype: " + rawBrickType);
     }
+
+    this.id = id;
   }
 
   public BrickType getBrickType()
   {
-    return brickType;
+    return this.brickType;
+  }
+
+  public int getId()
+  {
+    return this.id;
   }
 
   public void takeHit()
