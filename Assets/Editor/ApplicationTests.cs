@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using NSubstitute;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
@@ -11,28 +12,31 @@ namespace Tests
     [Test]
     public void SimpleMapIsFinishable()
     {
+      GamePhaseEventListener gameTracker = Substitute.For<GamePhaseEventListener>();
+
       // Let's give the ball means of communcating back to the engine.
-      GameEventBridge eventBridge = new GameEventBridge();
-      PlayerControlledBall ball = new PlayerControlledBall(eventBridge);
+      IngameEventBridge ingameEventBridge = new IngameEventBridge();
+      PlayerControlledBall ball = new PlayerControlledBall(ingameEventBridge);
 
       LevelData level = new LevelData();
       level.addRow(new string[] { "x", "x", "x" }); // index {0, 1, 2}
       level.addRow(new string[] { "x", "x" });      // index  {3, 4}
 
-      RangedMinerBreakoutGame game = new RangedMinerBreakoutGame(ball);
-      eventBridge.registerListener(game);
+      RangedMinerBreakoutGame gameRunner = new RangedMinerBreakoutGame(ball);
+      gameRunner.registerGamePhaseEventListener(gameTracker);
+      ingameEventBridge.registerListener(gameRunner);
 
-      game.loadLevel(level);
-      game.start();
+      gameRunner.loadLevel(level);
+      gameRunner.start();
 
       // This will be invoked from the ball upon colliding with tiles.
-      eventBridge.playerBouncedAgainst(0);
-      eventBridge.playerBouncedAgainst(1);
-      eventBridge.playerBouncedAgainst(2);
-      eventBridge.playerBouncedAgainst(3);
-      eventBridge.playerBouncedAgainst(4);
+      ingameEventBridge.playerBouncedAgainst(0);
+      ingameEventBridge.playerBouncedAgainst(1);
+      ingameEventBridge.playerBouncedAgainst(2);
+      ingameEventBridge.playerBouncedAgainst(3);
+      ingameEventBridge.playerBouncedAgainst(4);
 
-      Assert.True(game.isLevelCompleted());
+      gameTracker.Received(1).levelCompleted();
     }
   }
 }

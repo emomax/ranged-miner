@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerControlledBall : MonoBehaviour
+public class PlayerControlledBall
 {
-  private GameEventBridge eventBridge;
+  private IngameEventBridge eventBridge;
 
-  public PlayerControlledBall(GameEventBridge eventBridge)
+  public PlayerControlledBall(IngameEventBridge eventBridge)
   {
     this.eventBridge = eventBridge;
   }
