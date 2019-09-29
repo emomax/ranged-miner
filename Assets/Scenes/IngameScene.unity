@@ -869,6 +869,7 @@ GameObject:
   - component: {fileID: 2062947632}
   - component: {fileID: 2062947631}
   - component: {fileID: 2062947630}
+  - component: {fileID: 2062947634}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Untagged
@@ -896,7 +897,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &2062947631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -933,7 +934,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2062947629}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 6200000, guid: acd25ac3ec84442a894ba5809bc75192, type: 2}
   m_IsTrigger: 0
@@ -957,6 +958,32 @@ Transform:
   m_Father: {fileID: 2032920550}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &2062947634
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2062947629}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.1719177, y: 0.1719177}
+  m_EdgeRadius: 0
 --- !u!1 &2100092682
 GameObject:
   m_ObjectHideFlags: 0
