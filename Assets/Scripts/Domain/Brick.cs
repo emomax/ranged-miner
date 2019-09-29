@@ -8,6 +8,7 @@ public class Brick
   {
     BRITTLE
   }
+
   private BrickType brickType;
   private int health;
 
