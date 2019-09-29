@@ -8,7 +8,7 @@ public class BouncyBall : MonoBehaviour
   private Rigidbody2D rigidBody;
 
   [SerializeField]
-  private float baseSpeed = 10f;
+  private float baseSpeed = 0.01f;
 
   private Vector3 currentDirection;
 
@@ -37,5 +37,14 @@ public class BouncyBall : MonoBehaviour
 
       notifyGameRunner.Invoke(brick.getId());
     }
+  }
+
+  public void FixedUpdate()
+  {
+    // Seeing as Unity's physics doesn't want to co-operate fully, we'll have to put 
+    // some suspenders on there..
+
+    Vector2 direction = rigidBody.velocity.normalized;
+    rigidBody.velocity = direction * baseSpeed;
   }
 }
