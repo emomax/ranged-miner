@@ -16,8 +16,8 @@ namespace Tests
       PlayerControlledBall ball = new PlayerControlledBall(eventBridge);
 
       LevelData level = new LevelData();
-      level.addRow({ "x", "x", "x"}); // index {0, 1, 2}
-      level.addRow({ "x", "x"});      // index  {3, 4}
+      level.addRow(new string[] { "x", "x", "x" }); // index {0, 1, 2}
+      level.addRow(new string[] { "x", "x" });      // index  {3, 4}
 
       RangedMinerBreakoutGame game = new RangedMinerBreakoutGame(ball);
       eventBridge.registerListener(game);
