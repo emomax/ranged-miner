@@ -3,9 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RangedMinerBreakoutGame : IngameEventListener
+public class RangedMinerBreakoutGame
 {
-  private PlayerControlledBall ball;
   private Brick[] bricks;
   private int brokenBricks = 0;
   private List<GamePhaseEventListener> gamePhaseEventListeners;
@@ -52,8 +51,7 @@ public class RangedMinerBreakoutGame : IngameEventListener
     this.gamePhaseEventListeners.Add(listener);
   }
 
-  // From IngameEventListener
-  public override void playerBouncedAgainst(int index)
+  public void playerBouncedAgainst(int index)
   {
     Debug.Log("Tried to take hit for brick at index " + index);
     this.bricks[index].takeHit();
@@ -75,6 +73,14 @@ public class RangedMinerBreakoutGame : IngameEventListener
     else
     {
       Debug.Log("Broken bricks: " + brokenBricks + ", out of " + bricks.Length);
+    }
+  }
+
+  public void playerHitLoseZone()
+  {
+    foreach (var listener in gamePhaseEventListeners)
+    {
+      listener.gameOver();
     }
   }
 }
