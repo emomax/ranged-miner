@@ -11,11 +11,11 @@ public class ProgressIndicationHandler : MonoBehaviour
 
   public void showGameWon()
   {
-    animator.Play("game_won");
+    animator.Play("level_completed-show");
   }
 
   public void showGameOver()
   {
-    animator.Play("game_over");
+    // animator.Play("game_over");
   }
 }
