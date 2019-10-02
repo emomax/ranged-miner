@@ -6,7 +6,8 @@ public class Brick
 
   public enum BrickType
   {
-    BRITTLE
+    BRITTLE,
+    GOLD
   }
 
   private BrickType brickType;
@@ -15,10 +16,15 @@ public class Brick
 
   public Brick(string rawBrickType, int id)
   {
-    if (rawBrickType.Equals("x"))
+    if (rawBrickType.Equals("b"))
     {
       this.health = 1;
       this.brickType = BrickType.BRITTLE;
+    }
+    else if (rawBrickType.Equals("g"))
+    {
+      this.health = 3;
+      this.brickType = BrickType.GOLD;
     }
     else
     {

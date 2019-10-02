@@ -12,8 +12,8 @@ namespace Tests
     public void SimpleMapIsParseable()
     {
       LevelData level = new LevelData();
-      level.addRow(new string[] { "x", "x", "x" });
-      level.addRow(new string[] { "x", "x" });
+      level.addRow(new string[] { "b", "b", "b" });
+      level.addRow(new string[] { "b", "b" });
 
       Assert.That(level.getRows().Count == 2);
       Assert.That(level.getTotalNumberOfBricks() == 5);

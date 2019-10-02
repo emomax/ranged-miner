@@ -15,8 +15,8 @@ namespace Tests
       GamePhaseEventListener gameTracker = Substitute.For<GamePhaseEventListener>();
 
       LevelData level = new LevelData();
-      level.addRow(new string[] { "x", "x", "x" }); // index {0, 1, 2}
-      level.addRow(new string[] { "x", "x" });      // index  {3, 4}
+      level.addRow(new string[] { "b", "b", "b" }); // index {0, 1, 2}
+      level.addRow(new string[] { "b", "b" });      // index  {3, 4}
 
       RangedMinerBreakoutGame gameRunner = new RangedMinerBreakoutGame();
       gameRunner.registerGamePhaseEventListener(gameTracker);
@@ -39,8 +39,8 @@ namespace Tests
       GamePhaseEventListener gameTracker = Substitute.For<GamePhaseEventListener>();
 
       LevelData level = new LevelData();
-      level.addRow(new string[] { "x", "x", "x" }); // index {0, 1, 2}
-      level.addRow(new string[] { "x", "x" });      // index  {3, 4}
+      level.addRow(new string[] { "b", "b", "b" }); // index {0, 1, 2}
+      level.addRow(new string[] { "b", "b" });      // index  {3, 4}
 
       RangedMinerBreakoutGame gameRunner = new RangedMinerBreakoutGame();
       gameRunner.registerGamePhaseEventListener(gameTracker);
