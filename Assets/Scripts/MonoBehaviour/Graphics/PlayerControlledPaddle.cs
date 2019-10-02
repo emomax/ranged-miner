@@ -4,7 +4,6 @@ using UnityEngine;
 public class PlayerControlledPaddle : MonoBehaviour
 {
   private Rigidbody2D rigidBody;
-  private PaddleGraphics graphics;
 
   [SerializeField]
   private InputHandler inputHandler;
@@ -13,11 +12,15 @@ public class PlayerControlledPaddle : MonoBehaviour
 
   public void Start()
   {
-    this.graphics = this.GetComponentInChildren<PaddleGraphics>();
     this.rigidBody = this.GetComponent<Rigidbody2D>();
 
     // Moves the GameObject using its transform.
     rigidBody.isKinematic = true;
+  }
+
+  public void reset()
+  {
+    this.transform.localPosition = new Vector3(0, -0.7f, 0);
   }
 
   public void FixedUpdate()

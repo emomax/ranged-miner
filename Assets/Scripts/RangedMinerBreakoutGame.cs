@@ -25,6 +25,7 @@ public class RangedMinerBreakoutGame
   public void loadLevel(LevelData level)
   {
     this.bricks = new Brick[level.getTotalNumberOfBricks()];
+    this.brokenBricks = 0;
 
     List<List<Brick>> rows = level.getRows();
     int currentIndex = 0;
@@ -35,7 +36,6 @@ public class RangedMinerBreakoutGame
 
       for (int j = 0; j < currentRow.Count; j++)
       {
-        Debug.Log("Created brick at index " + currentIndex);
         this.bricks[currentIndex++] = currentRow[j];
       }
     }
@@ -43,7 +43,7 @@ public class RangedMinerBreakoutGame
 
   public bool isLevelCompleted()
   {
-    return false;
+    return brokenBricks == bricks.Length;
   }
 
   public void registerGamePhaseEventListener(GamePhaseEventListener listener)
@@ -53,7 +53,6 @@ public class RangedMinerBreakoutGame
 
   public void playerBouncedAgainst(int index)
   {
-    Debug.Log("Tried to take hit for brick at index " + index);
     this.bricks[index].takeHit();
 
     if (bricks[index].isBroken())

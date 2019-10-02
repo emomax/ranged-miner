@@ -30,7 +30,6 @@ public class IngameBrick : MonoBehaviour
 
     if (brickData.isBroken())
     {
-      Debug.Log("I died! ");
       this.boxCollider.enabled = false;
       this.spriteRenderer.enabled = false;
     }

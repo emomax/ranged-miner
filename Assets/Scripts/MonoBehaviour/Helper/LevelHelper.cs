@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static Brick;
 
-public class LevelBuilder : MonoBehaviour
+public class LevelHelper : MonoBehaviour
 {
 
   [SerializeField]
@@ -44,6 +44,14 @@ public class LevelBuilder : MonoBehaviour
     }
   }
 
+  public void resetLevel()
+  {
+    foreach (Transform child in transform)
+    {
+      GameObject.Destroy(child.gameObject);
+    }
+  }
+
   private GameObject getPrefabFor(BrickType type)
   {
     switch (type)
@@ -55,7 +63,7 @@ public class LevelBuilder : MonoBehaviour
       case BrickType.EMERALD:
         return emeraldBrickPrefab;
       default:
-        throw new UnityException("Non-handled graphic for bricktype '" + type + "'");
+        throw new UnityException("Unhandled graphic for bricktype '" + type + "'");
     }
   }
 }

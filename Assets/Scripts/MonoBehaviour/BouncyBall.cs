@@ -8,7 +8,7 @@ public class BouncyBall : MonoBehaviour
   private Rigidbody2D rigidBody;
 
   [SerializeField]
-  private float baseSpeed = 0.01f;
+  private float speed = 3f;
 
   private Vector3 currentDirection;
 
@@ -22,13 +22,10 @@ public class BouncyBall : MonoBehaviour
   void Start()
   {
     this.rigidBody = this.GetComponent<Rigidbody2D>();
-    this.rigidBody.AddForce(new Vector3(2f, 2f, 0f).normalized * baseSpeed);
   }
 
   public void OnCollisionEnter2D(Collision2D other)
   {
-    Debug.Log("Hit something: " + other.gameObject.name);
-
     if (other.gameObject.name.StartsWith("brick-"))
     {
       // We hit a brick! Poke it!
@@ -45,6 +42,17 @@ public class BouncyBall : MonoBehaviour
     // some suspenders on there..
 
     Vector2 direction = rigidBody.velocity.normalized;
-    rigidBody.velocity = direction * baseSpeed;
+    rigidBody.velocity = direction * speed;
+  }
+
+  public void reset()
+  {
+    this.rigidBody.velocity = Vector3.zero;
+    this.transform.localPosition = new Vector3(0, -0.3f, 0);
+  }
+
+  public void shoot()
+  {
+    this.rigidBody.AddForce(new Vector3(1f, 1f, 0f).normalized);
   }
 }
