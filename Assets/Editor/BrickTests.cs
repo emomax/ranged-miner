@@ -38,5 +38,20 @@ namespace Tests
       brick.takeHit();
       Assert.True(brick.isBroken());
     }
+
+    [Test]
+    public void EmeraldTypeBrickHas5Lives()
+    {
+      Brick brick = new Brick("e", 0);
+
+      brick.takeHit();
+      brick.takeHit();
+      brick.takeHit();
+      brick.takeHit();
+      Assert.False(brick.isBroken());
+
+      brick.takeHit();
+      Assert.True(brick.isBroken());
+    }
   }
 }
