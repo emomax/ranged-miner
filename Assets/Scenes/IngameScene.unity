@@ -6522,7 +6522,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2032920550}
   m_Layer: 0
-  m_Name: gameObjects
+  m_Name: InGameObjects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

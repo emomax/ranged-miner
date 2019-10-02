@@ -16,12 +16,14 @@ public class IngameBrick : MonoBehaviour
   private Collider2D boxCollider;
   private SpriteRenderer spriteRenderer;
   private Animator animator;
+  private ParticleSystem endBurst;
 
   void Start()
   {
     this.boxCollider = this.GetComponent<BoxCollider2D>();
     this.spriteRenderer = this.GetComponent<SpriteRenderer>();
     this.animator = this.GetComponent<Animator>();
+    this.endBurst = this.GetComponentInChildren<ParticleSystem>();
   }
 
   public void setId(int id)
@@ -37,6 +39,11 @@ public class IngameBrick : MonoBehaviour
     {
       this.boxCollider.enabled = false;
       this.spriteRenderer.enabled = false;
+
+      this.endBurst.time = 0f;
+      ParticleSystem.EmissionModule em = this.endBurst.emission;
+      em.enabled = true;
+      this.endBurst.Play();
     }
     else
     {
