@@ -6,17 +6,22 @@ using static Brick;
 
 public class IngameBrick : MonoBehaviour
 {
-
   [SerializeField]
   private BrickType brickType;
+
+  [SerializeField]
+  private List<string> animations;
+
   private Brick brickData;
   private Collider2D boxCollider;
   private SpriteRenderer spriteRenderer;
+  private Animator animator;
 
   void Start()
   {
     this.boxCollider = this.GetComponent<BoxCollider2D>();
     this.spriteRenderer = this.GetComponent<SpriteRenderer>();
+    this.animator = this.GetComponent<Animator>();
   }
 
   public void setId(int id)
@@ -32,6 +37,10 @@ public class IngameBrick : MonoBehaviour
     {
       this.boxCollider.enabled = false;
       this.spriteRenderer.enabled = false;
+    }
+    else
+    {
+      this.animator.Play(animations[this.brickData.getMaxHealth() - this.brickData.getCurrentHealth() - 1]);
     }
   }
 

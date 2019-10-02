@@ -70,8 +70,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d3274a0c8b3d34e89b9e3465ad28c33f, type: 3}
+  m_SortingOrder: 3
+  m_Sprite: {fileID: 21300000, guid: c6a6e2a5130a240a881d50f02efef177, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -91,9 +91,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6976065842732990839}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76abc7103120f4964951bb08e2892d72, type: 3}
+  m_Script: {fileID: 11500000, guid: 975d47ea562674eb3ae91f14b7b78ffd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  brickType: 0
+  animations: []
 --- !u!61 &3582417978310313531
 BoxCollider2D:
   m_ObjectHideFlags: 0

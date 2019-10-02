@@ -13,6 +13,7 @@ public class Brick
 
   private BrickType brickType;
   private int health;
+  private int maxHealth;
   private int id;
 
 
@@ -46,6 +47,8 @@ public class Brick
         this.health = 5;
         break;
     }
+
+    this.maxHealth = this.health;
   }
 
   private BrickType parseBrickType(string rawBrickType)
@@ -66,6 +69,16 @@ public class Brick
   public BrickType getBrickType()
   {
     return this.brickType;
+  }
+
+  public int getMaxHealth()
+  {
+    return this.maxHealth;
+  }
+
+  public int getCurrentHealth()
+  {
+    return this.health;
   }
 
   public int getId()
