@@ -7,9 +7,6 @@ public class GameRunner : MonoBehaviour
   private MagicMinerBreakoutGame application;
 
   [SerializeField]
-  private List<GameEventListener> listeners;
-
-  [SerializeField]
   private Animator cameraAnimator;
 
   // In-Game stuff
@@ -38,8 +35,6 @@ public class GameRunner : MonoBehaviour
     LevelData levelData = getLevelDataFor(levelId);
     application.loadLevel(levelData);
     levelHelper.buildLevel(levelData);
-
-    application.start();
 
     cameraAnimator.Play("transition_to-in_game");
     uiHelper.hideAllButtons();
@@ -100,6 +95,7 @@ public class GameRunner : MonoBehaviour
   {
     Time.timeScale = 0.5f;
     progressIndicationHandler.showGameWon();
+    ball.freezeInPlace();
     StartCoroutine(transitionToMenu());
   }
 

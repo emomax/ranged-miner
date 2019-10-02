@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -54,5 +55,10 @@ public class BouncyBall : MonoBehaviour
   public void shoot()
   {
     this.rigidBody.AddForce(new Vector3(1f, 1f, 0f).normalized);
+  }
+
+  public void freezeInPlace()
+  {
+    this.rigidBody.velocity = Vector3.zero;
   }
 }

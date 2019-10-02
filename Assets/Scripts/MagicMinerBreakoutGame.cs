@@ -7,25 +7,13 @@ public class MagicMinerBreakoutGame
 {
   private Brick[] bricks;
   private int brokenBricks = 0;
-  private List<GamePhaseEventListener> gamePhaseEventListeners;
-
-  public MagicMinerBreakoutGame()
-  {
-    this.gamePhaseEventListeners = new List<GamePhaseEventListener>();
-  }
-
-  public void start()
-  {
-    foreach (var listener in gamePhaseEventListeners)
-    {
-      listener.gameStarted();
-    }
-  }
+  private bool gameIsOver = false;
 
   public void loadLevel(LevelData level)
   {
     this.bricks = new Brick[level.getTotalNumberOfBricks()];
     this.brokenBricks = 0;
+    this.gameIsOver = false;
 
     List<List<Brick>> rows = level.getRows();
     int currentIndex = 0;
@@ -46,11 +34,6 @@ public class MagicMinerBreakoutGame
     return brokenBricks == bricks.Length;
   }
 
-  public void registerGamePhaseEventListener(GamePhaseEventListener listener)
-  {
-    this.gamePhaseEventListeners.Add(listener);
-  }
-
   public void playerBouncedAgainst(int index)
   {
     this.bricks[index].takeHit();
@@ -64,10 +47,6 @@ public class MagicMinerBreakoutGame
     if (brokenBricks == bricks.Length)
     {
       Debug.Log("All bricks are broken! Player won!");
-      foreach (var listener in gamePhaseEventListeners)
-      {
-        listener.levelCompleted();
-      }
     }
     else
     {
@@ -77,9 +56,11 @@ public class MagicMinerBreakoutGame
 
   public void playerHitLoseZone()
   {
-    foreach (var listener in gamePhaseEventListeners)
-    {
-      listener.gameOver();
-    }
+    this.gameIsOver = true;
+  }
+
+  public bool isGameOver()
+  {
+    return this.gameIsOver;
   }
 }

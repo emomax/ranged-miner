@@ -12,17 +12,13 @@ namespace Tests
     [Test]
     public void SimpleMapIsFinishable()
     {
-      GamePhaseEventListener gameTracker = Substitute.For<GamePhaseEventListener>();
-
       LevelData level = new LevelData();
       level.addRow(new string[] { "b", "b", "b" }); // index {0, 1, 2}
       level.addRow(new string[] { "b", "b" });      // index  {3, 4}
 
       MagicMinerBreakoutGame gameRunner = new MagicMinerBreakoutGame();
-      gameRunner.registerGamePhaseEventListener(gameTracker);
 
       gameRunner.loadLevel(level);
-      gameRunner.start();
 
       gameRunner.playerBouncedAgainst(0);
       gameRunner.playerBouncedAgainst(1);
@@ -30,27 +26,24 @@ namespace Tests
       gameRunner.playerBouncedAgainst(3);
       gameRunner.playerBouncedAgainst(4);
 
-      gameTracker.Received(1).levelCompleted();
+      Assert.True(gameRunner.isLevelCompleted());
     }
 
     [Test]
-    public void GameRunnerProperlyPropagatesGameOverEvent()
+    public void GameIsOverIfBallHitsLoseZone()
     {
-      GamePhaseEventListener gameTracker = Substitute.For<GamePhaseEventListener>();
-
       LevelData level = new LevelData();
       level.addRow(new string[] { "b", "b", "b" }); // index {0, 1, 2}
       level.addRow(new string[] { "b", "b" });      // index  {3, 4}
 
       MagicMinerBreakoutGame gameRunner = new MagicMinerBreakoutGame();
-      gameRunner.registerGamePhaseEventListener(gameTracker);
 
       gameRunner.loadLevel(level);
-      gameRunner.start();
 
       gameRunner.playerHitLoseZone();
 
-      gameTracker.Received(1).gameOver();
+      Assert.False(gameRunner.isLevelCompleted());
+      Assert.True(gameRunner.isGameOver());
     }
   }
 }
