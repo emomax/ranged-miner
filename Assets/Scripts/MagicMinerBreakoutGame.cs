@@ -3,13 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RangedMinerBreakoutGame
+public class MagicMinerBreakoutGame
 {
   private Brick[] bricks;
   private int brokenBricks = 0;
   private List<GamePhaseEventListener> gamePhaseEventListeners;
 
-  public RangedMinerBreakoutGame()
+  public MagicMinerBreakoutGame()
   {
     this.gamePhaseEventListeners = new List<GamePhaseEventListener>();
   }

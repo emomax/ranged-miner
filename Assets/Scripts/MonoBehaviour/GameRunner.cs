@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameRunner : MonoBehaviour
 {
-  private RangedMinerBreakoutGame application;
+  private MagicMinerBreakoutGame application;
 
   [SerializeField]
   private List<GameEventListener> listeners;
@@ -30,7 +30,7 @@ public class GameRunner : MonoBehaviour
   void Start()
   {
 
-    application = new RangedMinerBreakoutGame();
+    application = new MagicMinerBreakoutGame();
   }
 
   public void loadLevel(int levelId)

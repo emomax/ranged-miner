@@ -18,7 +18,7 @@ namespace Tests
       level.addRow(new string[] { "b", "b", "b" }); // index {0, 1, 2}
       level.addRow(new string[] { "b", "b" });      // index  {3, 4}
 
-      RangedMinerBreakoutGame gameRunner = new RangedMinerBreakoutGame();
+      MagicMinerBreakoutGame gameRunner = new MagicMinerBreakoutGame();
       gameRunner.registerGamePhaseEventListener(gameTracker);
 
       gameRunner.loadLevel(level);
@@ -42,7 +42,7 @@ namespace Tests
       level.addRow(new string[] { "b", "b", "b" }); // index {0, 1, 2}
       level.addRow(new string[] { "b", "b" });      // index  {3, 4}
 
-      RangedMinerBreakoutGame gameRunner = new RangedMinerBreakoutGame();
+      MagicMinerBreakoutGame gameRunner = new MagicMinerBreakoutGame();
       gameRunner.registerGamePhaseEventListener(gameTracker);
 
       gameRunner.loadLevel(level);
