@@ -509,6 +509,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brickPrefab: {fileID: 6976065842732990839, guid: 2207a8b15c5a14ba18ffdee1a4663077,
     type: 3}
+  goldBrickPrefab: {fileID: 7562110736502656838, guid: f18fc6c738f944b34898ae5ad46ecb99,
+    type: 3}
+  emeraldBrickPrefab: {fileID: 7973333653702100875, guid: c4fdd87e1195c4037aeee0e732119cb7,
+    type: 3}
   distanceBetweenRows: 0.4
   brickWidth: 0.55
 --- !u!114 &1399646849

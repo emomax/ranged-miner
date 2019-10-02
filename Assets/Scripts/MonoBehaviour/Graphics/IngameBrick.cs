@@ -2,9 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Brick;
 
 public class IngameBrick : MonoBehaviour
 {
+
+  [SerializeField]
+  private BrickType brickType;
   private Brick brickData;
   private Collider2D boxCollider;
   private SpriteRenderer spriteRenderer;
@@ -15,9 +19,9 @@ public class IngameBrick : MonoBehaviour
     this.spriteRenderer = this.GetComponent<SpriteRenderer>();
   }
 
-  public void setBrick(Brick brick)
+  public void setId(int id)
   {
-    this.brickData = brick;
+    this.brickData = new Brick(this.brickType, id);
   }
 
   public void wasHit()

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Brick
 {
-
+  [System.Serializable]
   public enum BrickType
   {
     BRITTLE,
@@ -15,11 +15,25 @@ public class Brick
   private int health;
   private int id;
 
+
   public Brick(string rawBrickType, int id)
   {
     this.id = id;
     this.brickType = parseBrickType(rawBrickType);
 
+    setHealth();
+  }
+
+  public Brick(BrickType brickType, int id)
+  {
+    this.id = id;
+    this.brickType = brickType;
+
+    setHealth();
+  }
+
+  private void setHealth()
+  {
     switch (brickType)
     {
       case BrickType.BRITTLE:

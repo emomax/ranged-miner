@@ -16,9 +16,9 @@ public class GameRunner : MonoBehaviour
   {
     LevelData levelData = new LevelData();
 
-    levelData.addRow(new string[] { "x", "x", "x", "x", "x", "x" });
-    levelData.addRow(new string[] { "x", "x", "x", "x" });
-    levelData.addRow(new string[] { "x", "x", "x", "x", "x" });
+    levelData.addRow(new string[] { "b", "b", "b", "b", "b", "b" });
+    levelData.addRow(new string[] { "b", "g", "e", "g", "b" });
+    levelData.addRow(new string[] { "b", "b", "b", "b", "b", "b" });
 
     application = new RangedMinerBreakoutGame();
     application.loadLevel(levelData);
