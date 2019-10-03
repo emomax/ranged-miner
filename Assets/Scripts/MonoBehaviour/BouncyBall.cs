@@ -6,23 +6,33 @@ using UnityEngine.Events;
 
 public class BouncyBall : MonoBehaviour
 {
-  private Rigidbody2D rigidBody;
-
-  [SerializeField]
-  private float speed = 3f;
-
-  private Vector3 currentDirection;
-
-
   [System.Serializable]
   private class onBrickCollision : UnityEvent<int> { }
 
   [SerializeField]
   private onBrickCollision notifyGameRunner;
 
+  [SerializeField]
+  private float speed = 3f;
+
+  private Rigidbody2D rigidBody;
+  private Vector3 currentDirection;
+  private bool isLoaded;
+
+
   void Start()
   {
     this.rigidBody = this.GetComponent<Rigidbody2D>();
+    this.isLoaded = false;
+  }
+
+  public void FixedUpdate()
+  {
+    // Seeing as Unity's physics doesn't want to co-operate fully, we'll have to put 
+    // some suspenders on there..
+
+    Vector2 direction = this.rigidBody.velocity.normalized;
+    this.rigidBody.velocity = direction * speed;
   }
 
   public void OnCollisionEnter2D(Collision2D other)
@@ -35,15 +45,6 @@ public class BouncyBall : MonoBehaviour
 
       notifyGameRunner.Invoke(brick.getId());
     }
-  }
-
-  public void FixedUpdate()
-  {
-    // Seeing as Unity's physics doesn't want to co-operate fully, we'll have to put 
-    // some suspenders on there..
-
-    Vector2 direction = rigidBody.velocity.normalized;
-    rigidBody.velocity = direction * speed;
   }
 
   public void reset()
