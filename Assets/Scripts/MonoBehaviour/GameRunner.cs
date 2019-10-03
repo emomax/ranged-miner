@@ -97,7 +97,6 @@ public class GameRunner : MonoBehaviour
 
   private void gameWon()
   {
-    Time.timeScale = 0.5f;
     progressIndicationHandler.showGameWon();
     ball.freezeInPlace();
     StartCoroutine(transitionToMenu());
@@ -121,7 +120,5 @@ public class GameRunner : MonoBehaviour
     paddle.reset();
     levelHelper.resetLevel();
     uiHelper.showAllButtons();
-
-    Time.timeScale = 1f;
   }
 }
