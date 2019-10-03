@@ -76,8 +76,12 @@ public class GameRunner : MonoBehaviour
 
   private IEnumerator readyForStart()
   {
+    yield return new WaitForSeconds(1.2f);
     Debug.Log("Ready for start!");
+
+    progressIndicationHandler.countDown();
     yield return new WaitForSeconds(2.3f);
+
     ball.shoot();
   }
 

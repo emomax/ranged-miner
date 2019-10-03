@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class ProgressIndicationHandler : MonoBehaviour
@@ -17,5 +18,10 @@ public class ProgressIndicationHandler : MonoBehaviour
   public void showGameOver()
   {
     // animator.Play("game_over");
+  }
+
+  public void countDown()
+  {
+    animator.Play("count_down");
   }
 }
